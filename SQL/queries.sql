@@ -160,8 +160,10 @@ join adiciona on musicas.id_audio = adiciona.id_produzivel
 join playlists on playlists.id = adiciona.id_playlist
 where genero_caracteriza_audio.tipo_genero like 'pop';
 
--- 2.b.d.2: indicar nome (perfil), nome (podcast), data (quando o podcast foi ouvido) para vez que um podcast foi ouvido
-select distinct perfis.nome, podcasts.nome, registro.data_reproducao 
-from perfis 
-join registro on registro.id_perfil = perfis.id
-join podcasts on registro.id_produzivel = podcasts.id_audio;
+-- 2.b.d.2: mostra quantos podcasts foram produzidos por cada criador de conteúdo
+select distinct criadores.id_cliente, count(distinct podcasts.id_audio) numero_podcasts
+from perfis
+join clientes on clientes.id_perfil = perfis.id
+join criadores on criadores.id_cliente = clientes.id_perfil
+join podcasts on podcasts.id_criador = perfis.id
+group by criadores.id_cliente
