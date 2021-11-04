@@ -60,18 +60,23 @@ namespace queries
         } 
         public override void ExecuteQuery(SqlConnectionStringBuilder builder)
         {
-            Console.WriteLine("Informe uma banda que precisa estar na fila por favor:");
+            Console.WriteLine("\nInforme uma banda que precisa estar na fila por favor:");
             this.BandaQuePrecisaEstarNaFila = Console.ReadLine();
             this.BandaQuePrecisaEstarNaFila += '%';
-            Console.WriteLine("Informe uma banda que nao pode estar na fila por favor:");
+            Console.WriteLine("\nInforme uma banda que nao pode estar na fila por favor:");
             this.BandaQueNaoPodeEstarNaFila = Console.ReadLine();
-            this.BandaQueNaoPodeEstarNaFila += '%';       
+            this.BandaQueNaoPodeEstarNaFila += '%';     
             base.ExecuteQuery(builder);
 
         }
         public override void ResponseLine(SqlDataReader reader)
         {
             Console.WriteLine("{0}", reader.GetString(0));
+        }
+
+        public override string GetQueryName()
+        {
+            return "RetornaNomeDeTodosOsUsuariosQueTemUmaDadaBandaNaFilaMasNaoTemOutraDadaBandaNaFila";
         }
     }
 }

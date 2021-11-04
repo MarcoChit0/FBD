@@ -23,5 +23,10 @@ namespace queries
         {
             Console.WriteLine("{0} {1}", reader.GetInt32(0), reader.GetInt32(1));
         }
+
+        public override string GetQueryName()
+        {
+            return "RetornaNomeDoPerfilENomeDoPodcastEDataDeQuandoOPodcastFoiOuvidoPara";
+        }
     }
 }

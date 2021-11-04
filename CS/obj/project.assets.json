@@ -532,11 +532,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\marco\\OneDrive\\Área de Trabalho\\FBD_TrabalhoFinal\\CS\\CS.csproj",
+      "projectUniqueName": "C:\\Users\\marco\\OneDrive\\Área de Trabalho\\FBD_TrabalhoFinal\\FBD\\CS\\CS.csproj",
       "projectName": "CS",
-      "projectPath": "C:\\Users\\marco\\OneDrive\\Área de Trabalho\\FBD_TrabalhoFinal\\CS\\CS.csproj",
+      "projectPath": "C:\\Users\\marco\\OneDrive\\Área de Trabalho\\FBD_TrabalhoFinal\\FBD\\CS\\CS.csproj",
       "packagesPath": "C:\\Users\\marco\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\marco\\OneDrive\\Área de Trabalho\\FBD_TrabalhoFinal\\CS\\obj\\",
+      "outputPath": "C:\\Users\\marco\\OneDrive\\Área de Trabalho\\FBD_TrabalhoFinal\\FBD\\CS\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\marco\\AppData\\Roaming\\NuGet\\NuGet.Config"

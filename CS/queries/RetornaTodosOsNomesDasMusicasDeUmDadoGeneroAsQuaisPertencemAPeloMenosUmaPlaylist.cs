@@ -25,11 +25,15 @@ namespace queries
 
         public override void ExecuteQuery(SqlConnectionStringBuilder builder)
         {
-            Console.WriteLine("Informe um genero por favor:");
+            Console.WriteLine("\nInforme um genero por favor:");
             this.genero = Console.ReadLine();
             this.genero += '%';
             base.ExecuteQuery(builder);
+        }
 
+        public override string GetQueryName()
+        {
+            return "RetornaTodosOsNomesDasMusicasDeUmDadoGeneroAsQuaisPertencemAPeloMenosUmaPlaylist";
         }
     }
 }

@@ -166,4 +166,84 @@ from perfis
 join clientes on clientes.id_perfil = perfis.id
 join criadores on criadores.id_cliente = clientes.id_perfil
 join podcasts on podcasts.id_criador = perfis.id
-group by criadores.id_cliente
+group by criadores.id_cliente;
+
+-- 2.b.8. agrupar todas as músicas da fila de clieton por gêneros e indicar a quantidade de músicas diferentes de cada um desses gêneros
+select genero_caracteriza_audio.tipo_genero genero, count(distinct musicas.id_audio) as quantidade_reproducoes
+from (select * from perfis where nome like 'cleiton%') perfis_nome
+join fila
+on fila.id_perfil = perfis_nome.id
+join musicas
+on musicas.id_audio = fila.id_produzivel
+join genero_caracteriza_audio
+on genero_caracteriza_audio.id_audio = musicas.id_audio
+group by genero_caracteriza_audio.tipo_genero;
+
+-- 2.b.9. indique todos os criadores de conteúdo que não seguem nenhuma das playlists que cleberson segue
+select distinct p_ext.nome, p_ext.id
+from perfis p_ext
+join perfil_segue_playlist
+on p_ext.id = perfil_segue_playlist.id_seguidor
+join clientes
+on clientes.id_perfil = p_ext.id
+join criadores
+on criadores.id_cliente = clientes.id_perfil
+where p_ext.nome not like 'Cleberson%'
+and not exists (
+	select *
+	from perfil_segue_playlist
+	where perfil_segue_playlist.id_seguidor = p_ext.id 
+	and perfil_segue_playlist.id_playlist in (
+		select id_playlist
+		from perfil_segue_playlist
+		join perfis
+		on perfis.id = perfil_segue_playlist.id_seguidor
+		where perfis.nome like 'cleberson%'
+		)
+	);
+	
+-- 2.b.10. indique todas as músicas que David Bowie grava, mas não é o criador da músicas
+-- singles gravados por bowie, mas que n foi ele o criador
+select musicas.nome, musicas.id_audio
+from musicas 
+join artista_grava_produzivel
+on musicas.id_audio = artista_grava_produzivel.id_produzivel
+join criadores
+on criadores.id_cliente = artista_grava_produzivel.id_artista
+where criadores.nome_artistico like 'david bowie%'
+and musicas.id_audio not in (
+select id_audio
+from musicas 
+where id_criador in (
+	select id
+	from perfis
+	join clientes
+	on clientes.id_perfil = perfis.id
+	join criadores
+	on criadores.id_cliente = clientes.id_perfil 
+	where criadores.nome_artistico like 'david bowie%'
+	)
+)
+union
+-- álbum gravado por ele, mas que ele não foi o criador nem do álbum, nem das músicas do álbum
+select musicas.nome, musicas.id_audio
+from criadores 
+join artista_grava_album
+on artista_grava_album.id_artista = criadores.id_cliente
+join albuns 
+on artista_grava_album.id_album = albuns.id
+join musica_compoe_album
+on musica_compoe_album.id_album = albuns.id
+join musicas
+on musicas.id_audio = musica_compoe_album.id_musica
+where nome_artistico like 'david bowie%'
+and musicas.id_criador not in (
+	select id_cliente
+	from criadores
+	where nome_artistico like 'david bowie%'
+)
+and albuns.id_criador not in (
+	select id_cliente
+	from criadores
+	where nome_artistico like 'david bowie%'
+);

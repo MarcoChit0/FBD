@@ -158,12 +158,15 @@ insert into artista_grava_produzivel values (1,6,'2021-11-02');
 insert into artista_grava_produzivel values (3,1,'2021-11-02');
 insert into artista_grava_produzivel values (3,2,'2021-11-02');
 insert into artista_grava_produzivel values (3,3,'2021-11-02');
+insert into artista_grava_produzivel values (1,2,'2021-11-02');
+insert into artista_grava_produzivel values (1,3,'2021-11-02');
 select * from artista_grava_produzivel;
 
 
 -- artista grava album
 insert into artista_grava_album values (1,2,'2021-11-02');
 insert into artista_grava_album values (1,3,'2021-11-02');
+insert into artista_grava_album values (1,1,'2021-11-02');
 insert into artista_grava_album values (3,1,'2021-11-02');
 select * from artista_grava_album;
 
@@ -181,6 +184,11 @@ select * from musica_compoe_album;
 insert into fila (id_perfil, id_produzivel, posicao) values(4,1,1);
 insert into fila (id_perfil, id_produzivel, posicao) values(5,6,3);
 insert into fila (id_perfil, id_produzivel, posicao) values(7,6,27);
+insert into fila (id_perfil, id_produzivel, posicao) values(7,5,28);
+insert into fila (id_perfil, id_produzivel, posicao) values(7,4,29);
+insert into fila (id_perfil, id_produzivel, posicao) values(7,3,30);
+insert into fila (id_perfil, id_produzivel, posicao) values(7,2,31);
+insert into fila (id_perfil, id_produzivel, posicao) values(7,1,32);
 select * from fila;
 
 
@@ -213,6 +221,12 @@ select * from perfil_segue_perfil;
 insert into perfil_segue_playlist values (4,1);
 insert into perfil_segue_playlist values (6,2);
 insert into perfil_segue_playlist values (5,3);
+insert into perfil_segue_playlist values (1,1);
+insert into perfil_segue_playlist values (2,2);
+insert into perfil_segue_playlist values (3,3);
+insert into perfil_segue_playlist values (1,2);
+insert into perfil_segue_playlist values (2,1);
+insert into perfil_segue_playlist values (1,3);
 select * from perfil_segue_playlist;
 
 

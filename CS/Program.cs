@@ -15,20 +15,24 @@ namespace cs
                 builder.ConnectionString = "Server=DESKTOP-F80E8TC;Database=fdb_trabalhofinal;Trusted_Connection=True;";
                 List<Query> listOfQueries = new List<Query>()
                 {
-                    new RetornaNomeDoPerfilENomeDoPodcastEDataDeQuandoOPodcastFoiOuvidoPara(),
+                    new AgruparTodasAsMusicasDeUmDadoUsuarioPorGeneroEIndicarQuantasMusicasDiferentesExistemPorCadaGenero(),
                     new NomeDoArtistaCujoAlbumEhOQueTemMaisReproducoes(),
                     new NomeEIdDosUsuariosQueAdministramExtatamenteAsMesmasPlaylistsQueDadoUsuarioAdministra(),
-                    new RetornaNomeDeTodosOsUsuariosQueTemUmaDadaBandaNaFilaMasNaoTemOutraDadaBandaNaFila(),
                     new RetornaASomaDaQuantidadeDeReproducoesDasMusicasDeUmAlbumParaCadaAlbumReproduzidoParaUmDadoUsuario(),
+                    new RetornaNomeDeTodosOsUsuariosQueTemUmaDadaBandaNaFilaMasNaoTemOutraDadaBandaNaFila(),
+                    new RetornaNomeDoPerfilENomeDoPodcastEDataDeQuandoOPodcastFoiOuvidoPara(),
                     new RetornaNumeroDeReproducoesMedioEMaximoEMinimoDeCadaMusicaPorGanero(),
-                    new RetornaTodosOsNomesDasMusicasDeUmDadoGeneroAsQuaisPertencemAPeloMenosUmaPlaylist()
+                    new RetornaOsNomesEOsRespectivosIdsDeTodosOsCriadoresDeConteudoQueNaoSeguemNenhumaDasPlaylistsQueUmDadoUsuarioSegue(),
+                    new RetornaTodasAsMusicasESeusRespectivosIdsParaTodasAsMusicasQueForamGravadasMasNaoCriadasPorUmDadoCriadorDeConteudo(),
+                    new RetornaTodosOsNomesDasMusicasDeUmDadoGeneroAsQuaisPertencemAPeloMenosUmaPlaylist(),
+
                 };
                 bool exit = false;
                 String line;
                 int lineContent;
                 do
                 {
-                    Console.WriteLine("Informe um valor:");
+                    Display(listOfQueries);
                     line = Console.ReadLine();
                     if(!int.TryParse(line, out lineContent))
                         lineContent = - 1;
@@ -41,7 +45,10 @@ namespace cs
                         case 4: listOfQueries[4].ExecuteQuery(builder) ; break;
                         case 5: listOfQueries[5].ExecuteQuery(builder) ; break;
                         case 6: listOfQueries[6].ExecuteQuery(builder) ; break;
-                        case 7: exit = true; break;
+                        case 7: listOfQueries[7].ExecuteQuery(builder) ; break;
+                        case 8: listOfQueries[8].ExecuteQuery(builder) ; break;
+                        case 9: listOfQueries[9].ExecuteQuery(builder) ; break;
+                        case 10: exit = true; break;
                         default: Console.WriteLine("Informe um valor valido"); break;
                     }
                 }while(!exit);
@@ -50,6 +57,18 @@ namespace cs
             {
                 Console.WriteLine(e.ToString());
             }
+        }    
+        public static void Display(List<Query> listOfQueries)
+        {
+            Console.WriteLine("\n\n---------------------------");
+            int counter = 0;
+            foreach(var query in listOfQueries){
+                Console.WriteLine("{0} - {1}",counter,query.GetQueryName());
+                counter ++;
+            }
+            Console.WriteLine("10 - PARAR EXECUCAO DO PROGRAMA");
+            Console.WriteLine("---------------------------");
+            Console.WriteLine("Por favor, selecione uma opcao:");
         }
     }
 }

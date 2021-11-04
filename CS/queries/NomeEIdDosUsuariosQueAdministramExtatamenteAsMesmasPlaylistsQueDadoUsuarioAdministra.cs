@@ -49,11 +49,16 @@ namespace queries
 
         public override void ExecuteQuery(SqlConnectionStringBuilder builder)
         {
-            Console.WriteLine("Informe um nome por favor:");
+            Console.WriteLine("\nInforme um nome de alguém que administre de playlists por favor:");
             this.name = Console.ReadLine();
-            this.name += '%';    
+            this.name += '%'; 
             base.ExecuteQuery(builder);
 
+        }
+
+        public override string GetQueryName()
+        {
+            return "NomeEIdDosUsuariosQueAdministramExtatamenteAsMesmasPlaylistsQueDadoUsuarioAdministra";
         }
     }
 }

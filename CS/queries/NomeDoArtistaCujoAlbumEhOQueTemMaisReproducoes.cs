@@ -33,5 +33,10 @@ namespace queries
         {
             Console.WriteLine("{0}", reader.GetString(0));
         }
+
+        public override string GetQueryName()
+        {
+            return "NomeDoArtistaCujoAlbumEhOQueTemMaisReproducoes";
+        }
     }
 }

@@ -24,5 +24,10 @@ namespace queries
         {
             Console.WriteLine("{0} {1} {2} {3}", reader.GetString(0), reader.GetDouble(1), reader.GetInt32(2), reader.GetInt32(3));
         }
+
+        public override string GetQueryName()
+        {
+            return "RetornaNumeroDeReproducoesMedioEMaximoEMinimoDeCadaMusicaPorGanero";
+        }
     }
 }

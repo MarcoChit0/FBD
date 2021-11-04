@@ -15,6 +15,7 @@ namespace queries
         }
 
         public virtual void ExecuteQuery(SqlConnectionStringBuilder builder){
+            ResponseDisplay();
             using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
                 {   
                     connection.Open();       
@@ -34,6 +35,10 @@ namespace queries
         public virtual void ResponseLine(SqlDataReader reader)
         {
             Console.WriteLine();
-        } 
+        }
+
+        public virtual String GetQueryName() => "Query";
+
+        public virtual void ResponseDisplay() => Console.WriteLine("\n\n-------------------------\n Resultados Da consulta:\n-------------------------");
     }
 }
