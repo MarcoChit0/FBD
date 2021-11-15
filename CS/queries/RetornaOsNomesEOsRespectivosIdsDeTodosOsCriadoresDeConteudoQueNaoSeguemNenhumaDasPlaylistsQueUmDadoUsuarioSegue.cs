@@ -33,6 +33,14 @@ namespace queries
             }
         } 
 
+        public override string Columns
+        {
+            get
+            {
+                return "nomePerfil  |   idPerfil";
+            }
+        }
+
         public override void ResponseLine(SqlDataReader reader)
         {
             Console.WriteLine("{0} {1}", reader.GetString(0), reader.GetInt32(1));
@@ -49,7 +57,7 @@ namespace queries
 
         public override string GetQueryName()
         {
-            return "RetornaOsNomesEOsRespectivosIdsDeTodosOsCriadoresDeConteudoQueNaoSeguemNenhumaDasPlaylistsQueUmDadoUsuarioSegue";
+            return "Retorna Os Nomes E Os Respectivos Ids De Todos Os Criadores De Conteudo Que Nao Seguem Nenhuma Das Playlists Que Um Dado Usuario Segue";
         }
     }
 }

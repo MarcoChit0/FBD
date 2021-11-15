@@ -20,6 +20,14 @@ namespace queries
             }
         } 
 
+        public override string Columns
+        {
+            get
+            {
+                return "gereno  |   media   |   maximo  |   minimo";
+            }
+        }
+
         public override void ResponseLine(SqlDataReader reader)
         {
             Console.WriteLine("{0} {1} {2} {3}", reader.GetString(0), reader.GetDouble(1), reader.GetInt32(2), reader.GetInt32(3));
@@ -27,7 +35,7 @@ namespace queries
 
         public override string GetQueryName()
         {
-            return "RetornaNumeroDeReproducoesMedioEMaximoEMinimoDeCadaMusicaPorGanero";
+            return "Retorna Numero De Reproducoes Medio E Maximo E Minimo De Cada Musica Por Ganero";
         }
     }
 }

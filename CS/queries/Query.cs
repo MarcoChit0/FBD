@@ -6,6 +6,13 @@ namespace queries
 {
     public abstract class Query
     {
+        public virtual String Columns 
+        { 
+            get
+            {
+                return "columns";
+            }
+        }
         public virtual String sql 
         {
             get
@@ -24,6 +31,7 @@ namespace queries
                     {
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
+                            ResponseColumns();
                             while (reader.Read())
                             {
                                 ResponseLine(reader);
@@ -31,6 +39,16 @@ namespace queries
                         }
                     }
             } 
+        }
+
+        public virtual void ResponseColumns(){
+            Console.WriteLine(Columns);
+            String lineSeparator = "-";
+            for(int i=0; i < Columns.Length; i++)
+            {
+                lineSeparator = lineSeparator + "-";
+            }
+            Console.WriteLine(lineSeparator);
         }
         public virtual void ResponseLine(SqlDataReader reader)
         {

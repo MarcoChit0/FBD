@@ -58,6 +58,15 @@ namespace queries
                             );";
             }
         } 
+
+        public override string Columns
+        {
+            get
+            {
+                return "nomePerfil";
+            }
+        }
+
         public override void ExecuteQuery(SqlConnectionStringBuilder builder)
         {
             Console.WriteLine("\nInforme uma banda que precisa estar na fila por favor:");
@@ -76,7 +85,7 @@ namespace queries
 
         public override string GetQueryName()
         {
-            return "RetornaNomeDeTodosOsUsuariosQueTemUmaDadaBandaNaFilaMasNaoTemOutraDadaBandaNaFila";
+            return "Retorna Nome De Todos Os Usuarios Que Tem Uma Dada Banda Na Fila Mas Nao Tem Outra Dada Banda Na Fila";
         }
     }
 }

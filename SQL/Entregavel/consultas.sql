@@ -22,7 +22,7 @@ select * from musicas;
 
 
 -- 2.b. Consultas:
--- 2.b.a.1: número de reprodução médio, máximo e mínimo de cada música por gênero
+-- 2.b.1: número de reprodução médio, máximo e mínimo de cada música por gênero
 select generos.tipo, avg(cast(musicas.numero_reproducoes as float)) media, max(musicas.numero_reproducoes) maximo, min(musicas.numero_reproducoes) minimo
 from generos 
 join genero_caracteriza_audio 
@@ -32,9 +32,9 @@ on musicas.id_audio = genero_caracteriza_audio.id_audio
 group by generos.tipo;
 
 
--- 2.b.a.2: para cada álbum que cleberson ouviu, indicar a quantidade de músicas ouvidas 
+-- 2.b.2: para cada álbum que cleberson ouviu, indicar a quantidade de músicas ouvidas 
 -- obs.: se ele ouvir 2x a mesma música, conta como 2 repetições. Assim como, se ele ouvir 1 vez duas músicas difentes, também conta como 2 repetições
-select perfis.nome, albuns.id album, count(registro.id_produzivel) reproducoes 
+select perfis.nome, albuns.id album, albuns.nome albumNome, count(registro.id_produzivel) reproducoes
 from perfis
 join registro 
 on registro.id_perfil = perfis.id
@@ -44,13 +44,13 @@ join musica_compoe_album
 on musicas.id_audio = musica_compoe_album.id_musica
 join albuns
 on albuns.id = musica_compoe_album.id_album
-group by perfis.nome, albuns.id
+group by perfis.nome, albuns.id, albuns.nome
 having perfis.nome like 'cleberson%'
 order by reproducoes;
 
 
 
--- 2.b.d.1: nome de todos os usuários que tem pink floyd na fila, mas não tem david bowie
+-- 2.b.3: nome de todos os usuários que tem pink floyd na fila, mas não tem david bowie
 select distinct perfis.nome
 from perfis
 join usuarios_nao_pagantes 
@@ -103,7 +103,7 @@ and perfis.id not in(
 		)
 	);
 
--- 2.b.d.2: o nome do artista cujo álbum tem o maior número de reprodução dentre todos 
+-- 2.b.4: o nome do artista cujo álbum tem o maior número de reprodução dentre todos 
 select distinct perfis.nome 
 from perfis 
 join clientes
@@ -121,7 +121,7 @@ where perfis.id in (
 		)
 	);
 
--- 2.b.c.1: o nome e o id dos administradores de playlists que administram exatamente as mesmas playlists que Cleberson administra desde que esses perfis sejam clientes
+-- 2.b.5: o nome e o id dos administradores de playlists que administram exatamente as mesmas playlists que Cleberson administra desde que esses perfis sejam clientes
 select distinct p_ext.nome, p_ext.id
 from perfis p_ext
 join administra
@@ -153,22 +153,25 @@ and not exists (
 		on perfis.id = administra.id_administrador
 		where perfis.nome like 'Cleberson%'));
 
--- 2.b.d.1: todos os nomes das músicas de pop que pertencem a pelo menos uma playlist
+
+-- 2.b.6: todos os nomes das músicas de pop que pertencem a pelo menos uma playlist
 select distinct musicas.nome from musicas
 join genero_caracteriza_audio on genero_caracteriza_audio.id_audio = musicas.id_audio
 join adiciona on musicas.id_audio = adiciona.id_produzivel
 join playlists on playlists.id = adiciona.id_playlist
 where genero_caracteriza_audio.tipo_genero like 'pop';
 
--- 2.b.d.2: mostra quantos podcasts foram produzidos por cada criador de conteúdo
-select distinct criadores.id_cliente, count(distinct podcasts.id_audio) numero_podcasts
+
+-- 2.b.7: mostra quantos podcasts foram produzidos por cada criador de conteúdo
+select distinct criadores.id_cliente idCriador, count(distinct podcasts.id_audio) numero_podcasts
 from perfis
 join clientes on clientes.id_perfil = perfis.id
 join criadores on criadores.id_cliente = clientes.id_perfil
 join podcasts on podcasts.id_criador = perfis.id
 group by criadores.id_cliente;
 
--- 2.b.8. agrupar todas as músicas da fila de clieton por gêneros e indicar a quantidade de músicas diferentes de cada um desses gêneros
+
+-- 2.b.8: agrupar todas as músicas da fila de clieton por gêneros e indicar a quantidade de músicas diferentes de cada um desses gêneros
 select genero_caracteriza_audio.tipo_genero genero, count(distinct musicas.id_audio) as quantidade_reproducoes
 from (select * from perfis where nome like 'cleiton%') perfis_nome
 join fila
@@ -179,7 +182,8 @@ join genero_caracteriza_audio
 on genero_caracteriza_audio.id_audio = musicas.id_audio
 group by genero_caracteriza_audio.tipo_genero;
 
--- 2.b.9. indique todos os criadores de conteúdo que não seguem nenhuma das playlists que cleberson segue
+
+-- 2.b.9: indique todos os criadores de conteúdo que não seguem nenhuma das playlists que cleberson segue
 select distinct p_ext.nome, p_ext.id
 from perfis p_ext
 join perfil_segue_playlist

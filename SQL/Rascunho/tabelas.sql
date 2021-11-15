@@ -5,7 +5,7 @@ email varchar(100) not null unique,
 pais varchar(50) not null, 
 id int identity(1,1) primary key,
 data_nascimento date not null,
-numero_seguidores int, 
+numero_seguidores bigint, 
 ); 
 
 

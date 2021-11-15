@@ -17,6 +17,14 @@ insert into perfis(nome,email,pais,data_nascimento,numero_seguidores)
 values ('Jossoares','jo@gmail.com','br','1972-08-08',340934);
 insert into perfis(nome,email,pais,data_nascimento,numero_seguidores)
 values ('Taylor','taylor@capital.com','us','1995-05-05',4304334);
+insert into perfis(nome,email,pais,data_nascimento,numero_seguidores)
+values ('Jovem Nerd','jn@podcasts.com','br','2008-06-22',7431828);
+insert into perfis(nome,email,pais,data_nascimento,numero_seguidores)
+values ('The Weekend','the_weekend@hotmail.com','us','1990-02-16',891913181);
+insert into perfis(nome,email,pais,data_nascimento,numero_seguidores)
+values ('Xadrez Verbal','xadrez_verbal@central3.com','br','2015-08-31',30954);
+insert into perfis(nome,email,pais,data_nascimento,numero_seguidores)
+values ('Tom Jobim','tom_jobim@gmail.com','br','1927-01-25',420984);
 select * from perfis;
 
 
@@ -33,6 +41,14 @@ insert into clientes(id_perfil, proxima_fatura)
 values(8,'2021-10-5');
 insert into clientes(id_perfil, proxima_fatura)
 values(6,'2021-10-5');
+insert into clientes(id_perfil, proxima_fatura)
+values(10,'2021-10-5');
+insert into clientes(id_perfil, proxima_fatura)
+values(11,'2021-10-5');
+insert into clientes(id_perfil, proxima_fatura)
+values(12,'2021-10-5');
+insert into clientes(id_perfil, proxima_fatura)
+values(13,'2021-10-5');
 select * from clientes;
 
 
@@ -53,6 +69,15 @@ insert into criadores
 values(2, 'The Daily');
 insert into criadores
 values(3, 'Pink Floyd');
+insert into criadores
+values(10, 'Jovem Nerd');
+insert into criadores
+values(11, 'The Weekend');
+insert into criadores
+values(12, 'Xadrez Verbal');
+insert into criadores
+values(13, 'Tom Jobim');
+insert into criadores
 select * from criadores;
 
 
@@ -81,6 +106,29 @@ insert into audios (numero_reproducoes, conteudo, nome, tempo_duracao)
 values(320000,'https://www.youtube.com/watch?v=EDdWSzc3uR0','BLACK FRIDAY NA NERDSTORE!!!','00:03:01');
 insert into audios (numero_reproducoes, conteudo, nome, tempo_duracao)
 values(580000,'https://www.youtube.com/watch?v=GyY15Jkkg2A','Pepsi : Vending Machine','00:00:30');
+insert into audios (numero_reproducoes, conteudo, nome, tempo_duracao)
+values(34098324,'https://jovemnerd.com.br/nerdcast/em-duna-o-choro-nao-e-livre/','Em Duna, o choro não é livre','02:32:00');
+insert into audios (numero_reproducoes, conteudo, nome, tempo_duracao)
+values(439872,'https://jovemnerd.com.br/nerdcast/extra/arcane-ato-i-ciencia-e-magia/','Arcane – Ato I: Ciência e Magia','00:50:00');
+insert into audios (numero_reproducoes, conteudo, nome, tempo_duracao)
+values(509842324,'https://jovemnerd.com.br/nerdcast/rpg-call-of-cthulhu-1-o-misterio-de-william-faraday/','RPG Call of Cthulhu 1: O mistério de William Faraday
+','02:41:00');
+insert into audios (numero_reproducoes, conteudo, nome, tempo_duracao)
+values(510033958,'https://www.youtube.com/watch?v=4NRXx6U8ABQ','Blinding Lights','00:04:22');
+insert into audios (numero_reproducoes, conteudo, nome, tempo_duracao)
+values(1746313326,'https://www.youtube.com/watch?v=yzTuBuRdAyA','The Hills','00:03:54');
+insert into audios (numero_reproducoes, conteudo, nome, tempo_duracao)
+values(584327257,'https://www.youtube.com/watch?v=XXYlFuWEuKI','Save your tears','00:04:08');
+insert into audios (numero_reproducoes, conteudo, nome, tempo_duracao)
+values(10000,'https://www.youtube.com/watch?v=SUICYV_eHS8','Xadrez Verbal #273 - 16a Cúpula do G20','04:42:00');
+insert into audios (numero_reproducoes, conteudo, nome, tempo_duracao)
+values(12000,'https://www.youtube.com/watch?v=1fp9dDsVRwI','Golpe No Sudão','04:12:00');
+insert into audios (numero_reproducoes, conteudo, nome, tempo_duracao)
+values(12000,'https://www.youtube.com/watch?v=9rxfyLd_yDY','Xadrez Verbal #271 + Especial Coronavírus #41','04:51:30');
+insert into audios (numero_reproducoes, conteudo, nome, tempo_duracao)
+values(17000000,'https://www.youtube.com/watch?v=E1tOV7y94DY','Elis Regina & Tom Jobim - "Aguas de Março" - 1974','00:03:30');
+insert into audios (numero_reproducoes, conteudo, nome, tempo_duracao)
+values(45000000,'https://www.youtube.com/watch?v=KJzBxJ8ExRk','Tom Jobim: Garota de Ipanema (com Vinicius de Moraes)','00:03:37');
 select * from audios;
 
 
@@ -89,6 +137,12 @@ select * from audios;
 insert into produziveis (id_audio, tipo, id_criador, data_criacao) values(7,'pod',2,'2021-9-29');
 insert into produziveis (id_audio, tipo, id_criador, data_criacao) values(8,'pod',2,'2021-9-28');
 insert into produziveis (id_audio, tipo, id_criador, data_criacao) values(9,'pod',2,'2021-9-25');
+insert into produziveis (id_audio, tipo, id_criador, data_criacao) values(13,'pod',10,'2021-9-29');
+insert into produziveis (id_audio, tipo, id_criador, data_criacao) values(14,'pod',10,'2021-9-28');
+insert into produziveis (id_audio, tipo, id_criador, data_criacao) values(15,'pod',10,'2021-9-25');
+insert into produziveis (id_audio, tipo, id_criador, data_criacao) values(19,'pod',12,'2021-9-29');
+insert into produziveis (id_audio, tipo, id_criador, data_criacao) values(20,'pod',12,'2021-9-28');
+insert into produziveis (id_audio, tipo, id_criador, data_criacao) values(21,'pod',12,'2021-9-25');
 -- musicas
 insert into produziveis (id_audio, tipo, id_criador, data_criacao) values(1,'mus',3,'2021-09-30');
 insert into produziveis (id_audio, tipo, id_criador, data_criacao) values(2,'mus',3,'2021-09-29');
@@ -96,6 +150,11 @@ insert into produziveis (id_audio, tipo, id_criador, data_criacao) values(3,'mus
 insert into produziveis (id_audio, tipo, id_criador, data_criacao) values(4,'mus',1,'2021-09-26');
 insert into produziveis (id_audio, tipo, id_criador, data_criacao) values(5,'mus',1,'2021-09-26');
 insert into produziveis (id_audio, tipo, id_criador, data_criacao) values(6,'mus',1,'2021-09-25');
+insert into produziveis (id_audio, tipo, id_criador, data_criacao) values(16,'mus',11,'2021-09-26');
+insert into produziveis (id_audio, tipo, id_criador, data_criacao) values(17,'mus',11,'2021-09-26');
+insert into produziveis (id_audio, tipo, id_criador, data_criacao) values(18,'mus',11,'2021-09-25');
+insert into produziveis (id_audio, tipo, id_criador, data_criacao) values(22,'mus',13,'2021-09-26');
+insert into produziveis (id_audio, tipo, id_criador, data_criacao) values(23,'mus',13,'2021-09-26');
 select * from produziveis;
 
 
@@ -122,6 +181,8 @@ insert into generos values('pop');
 insert into generos values('funk');
 insert into generos values('classic');
 insert into generos values('hard-rock');
+insert into generos values('mpb');
+insert into generos values('eletronica');
 select * from generos;
 
 
@@ -129,6 +190,7 @@ select * from generos;
 insert into playlists values (15,'00:43:21' ,7,  '2021-11-02' ,'pri', 'Playlist Suprema');
 insert into playlists values (15,'00:43:21',8,	 '2021-11-02' ,'pri', 'Playlist Suprema');
 insert into playlists values (12845,'03:38:29',9,'2021-11-02' ,'pub', 'pop playlist');
+insert into playlists values (1345,'00:43:21' ,7,  '2021-11-02' ,'pub',  'MPBzinho');
 select * from playlists;
 
 -- albuns
@@ -145,6 +207,11 @@ insert into genero_caracteriza_audio values ('rock',3);
 insert into genero_caracteriza_audio values ('pop',4);
 insert into genero_caracteriza_audio values ('rock',4);
 insert into genero_caracteriza_audio values ('pop',5);
+insert into genero_caracteriza_audio values ('eletronica',16);
+insert into genero_caracteriza_audio values ('eletronica',17);
+insert into genero_caracteriza_audio values ('eletronica',18);
+insert into genero_caracteriza_audio values ('mpb',22);
+insert into genero_caracteriza_audio values ('mpb',23);
 select * from genero_caracteriza_audio;
 
 
@@ -160,6 +227,13 @@ insert into artista_grava_produzivel values (3,2,'2021-11-02');
 insert into artista_grava_produzivel values (3,3,'2021-11-02');
 insert into artista_grava_produzivel values (1,2,'2021-11-02');
 insert into artista_grava_produzivel values (1,3,'2021-11-02');
+insert into artista_grava_produzivel values (11,23,'2021-11-02');
+insert into artista_grava_produzivel values (11,1,'2021-11-02');
+insert into artista_grava_produzivel values (11,3,'2021-11-02');
+insert into artista_grava_produzivel values (13,3,'2021-11-02');
+insert into artista_grava_produzivel values (13,1,'2021-11-02');
+insert into artista_grava_produzivel values (13,5,'2021-11-02');
+insert into artista_grava_produzivel values (13,4,'2021-11-02');
 select * from artista_grava_produzivel;
 
 
@@ -168,6 +242,8 @@ insert into artista_grava_album values (1,2,'2021-11-02');
 insert into artista_grava_album values (1,3,'2021-11-02');
 insert into artista_grava_album values (1,1,'2021-11-02');
 insert into artista_grava_album values (3,1,'2021-11-02');
+insert into artista_grava_album values (11,2,'2021-11-02');
+insert into artista_grava_album values (13,3,'2021-11-02');
 select * from artista_grava_album;
 
 
@@ -214,6 +290,9 @@ select * from registro;
 insert into perfil_segue_perfil values (4,1);
 insert into perfil_segue_perfil values (5,1);
 insert into perfil_segue_perfil values (7,1);
+insert into perfil_segue_perfil values (4,3);
+insert into perfil_segue_perfil values (9,12);
+insert into perfil_segue_perfil values (6,11);
 select * from perfil_segue_perfil;
 
 
@@ -227,6 +306,8 @@ insert into perfil_segue_playlist values (3,3);
 insert into perfil_segue_playlist values (1,2);
 insert into perfil_segue_playlist values (2,1);
 insert into perfil_segue_playlist values (1,3);
+insert into perfil_segue_playlist values (5,4);
+insert into perfil_segue_playlist values (6,4);
 select * from perfil_segue_playlist;
 
 
@@ -239,6 +320,8 @@ insert into administra values(7,2);
 insert into administra values(7,1);
 insert into administra values(4,3);
 insert into administra values(4,1);
+insert into administra values(7,4);
+insert into administra values(6,4);
 select * from administra;
 
 
@@ -246,4 +329,6 @@ select * from administra;
 insert into adiciona values (9,3,4,'2021-09-29');
 insert into adiciona values (5,3,5,'2021-09-29');
 insert into adiciona values (7,1,9,'2021-09-29');
+insert into adiciona values (7,4,23,'2021-09-29');
+insert into adiciona values (7,4,22,'2021-09-29');
 select * from adiciona;

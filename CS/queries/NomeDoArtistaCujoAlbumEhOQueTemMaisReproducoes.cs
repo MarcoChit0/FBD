@@ -28,6 +28,13 @@ namespace queries
                             );";
             }
         } 
+        public override string Columns
+        {
+            get
+            {
+                return "nomePerfil";
+            }
+        }
 
         public override void ResponseLine(SqlDataReader reader)
         {
@@ -36,7 +43,7 @@ namespace queries
 
         public override string GetQueryName()
         {
-            return "NomeDoArtistaCujoAlbumEhOQueTemMaisReproducoes";
+            return "Nome Do Artista Cujo Album Eh O Que Tem Mais Reproducoes";
         }
     }
 }

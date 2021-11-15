@@ -24,6 +24,15 @@ namespace queries
             }
         } 
 
+        public override string Columns
+        {
+            get
+            {
+                return "genero  |   quantidade_reproducoes";
+            }
+        }
+
+
         public override void ResponseLine(SqlDataReader reader)
         {
             Console.WriteLine("{0} {1}", reader.GetString(0), reader.GetInt32(1));
@@ -39,7 +48,12 @@ namespace queries
 
         public override string GetQueryName()
         {
-            return "AgruparTodasAsMusicasDeUmDadoUsuarioPorGeneroEIndicarQuantasMusicasDiferentesExistemPorCadaGenero";
+            return "Agrupar Todas As Musicas De Um Dado Usuario Por Genero E Indicar Quantas Musicas Diferentes Existem Por Cada Genero";
+        }
+
+        public override void ResponseColumns()
+        {
+            
         }
     }
 }

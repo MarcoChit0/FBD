@@ -12,7 +12,7 @@ namespace cs
             try 
             { 
                 SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-                builder.ConnectionString = "Server=DESKTOP-F80E8TC;Database=fdb_trabalhofinal;Trusted_Connection=True;";
+                builder.ConnectionString = "Server=DESKTOP-F80E8TC;Database=teste_entrega_final;Trusted_Connection=True;";
                 List<Query> listOfQueries = new List<Query>()
                 {
                     new AgruparTodasAsMusicasDeUmDadoUsuarioPorGeneroEIndicarQuantasMusicasDiferentesExistemPorCadaGenero(),
@@ -20,7 +20,7 @@ namespace cs
                     new NomeEIdDosUsuariosQueAdministramExtatamenteAsMesmasPlaylistsQueDadoUsuarioAdministra(),
                     new RetornaASomaDaQuantidadeDeReproducoesDasMusicasDeUmAlbumParaCadaAlbumReproduzidoParaUmDadoUsuario(),
                     new RetornaNomeDeTodosOsUsuariosQueTemUmaDadaBandaNaFilaMasNaoTemOutraDadaBandaNaFila(),
-                    new RetornaNomeDoPerfilENomeDoPodcastEDataDeQuandoOPodcastFoiOuvidoPara(),
+                    new RetornaNomeDoCiradorDeConteudoEQuantidadeDePodcastsProduzidosPorEle(),
                     new RetornaNumeroDeReproducoesMedioEMaximoEMinimoDeCadaMusicaPorGanero(),
                     new RetornaOsNomesEOsRespectivosIdsDeTodosOsCriadoresDeConteudoQueNaoSeguemNenhumaDasPlaylistsQueUmDadoUsuarioSegue(),
                     new RetornaTodasAsMusicasESeusRespectivosIdsParaTodasAsMusicasQueForamGravadasMasNaoCriadasPorUmDadoCriadorDeConteudo(),

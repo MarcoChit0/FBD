@@ -56,6 +56,14 @@ namespace queries
             }
         } 
 
+        public override string Columns
+        {
+            get
+            {
+                return "nomeMusica  |   idMusica";
+            }
+        }
+
         public override void ResponseLine(SqlDataReader reader)
         {
             Console.WriteLine("{0} {1}", reader.GetString(0), reader.GetInt32(1));
@@ -71,7 +79,7 @@ namespace queries
 
         public override string GetQueryName()
         {
-            return "RetornaTodasAsMusicasESeusRespectivosIdsParaTodasAsMusicasQueForamGravadasMasNaoCriadasPorUmDadoCriadorDeConteudo";
+            return "Retorna Todas As Musicas E Seus Respectivos Ids Para Todas As Musicas Que Foram Gravadas Mas Nao Criadas Por Um Dado Criador De Conteudo";
         }
     }
 }

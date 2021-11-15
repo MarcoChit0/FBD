@@ -18,6 +18,14 @@ namespace queries
             }
         } 
 
+        public override string Columns
+        {
+            get
+            {
+                return "nomeMusica";
+            }
+        }
+
         public override void ResponseLine(SqlDataReader reader)
         {
             Console.WriteLine("{0}", reader.GetString(0));
@@ -33,7 +41,7 @@ namespace queries
 
         public override string GetQueryName()
         {
-            return "RetornaTodosOsNomesDasMusicasDeUmDadoGeneroAsQuaisPertencemAPeloMenosUmaPlaylist";
+            return "Retorna Todos Os Nomes Das Musicas De Um Dado Genero As Quais Pertencem A Pelo Menos Uma Playlist";
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 
 namespace queries
 {
-    public class RetornaNomeDoPerfilENomeDoPodcastEDataDeQuandoOPodcastFoiOuvidoPara : Query
+    public class RetornaNomeDoCiradorDeConteudoEQuantidadeDePodcastsProduzidosPorEle : Query
     {
         public override String sql
         {
@@ -19,6 +19,14 @@ namespace queries
             }
         } 
 
+        public override string Columns
+        {
+            get
+            {
+                return "idCriador   |   numeroPodcasts";
+            }
+        }
+
         public override void ResponseLine(SqlDataReader reader)
         {
             Console.WriteLine("{0} {1}", reader.GetInt32(0), reader.GetInt32(1));
@@ -26,7 +34,7 @@ namespace queries
 
         public override string GetQueryName()
         {
-            return "RetornaNomeDoPerfilENomeDoPodcastEDataDeQuandoOPodcastFoiOuvidoPara";
+            return "Retorna Nome Do Cirador De Conteudo E Quantidade De Podcasts Produzidos Por Ele";
         }
     }
 }

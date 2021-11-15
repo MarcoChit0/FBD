@@ -40,7 +40,16 @@ namespace queries
                         on perfis.id = administra.id_administrador
                         where perfis.nome like '" + name + "'));";
             }
-        } 
+        }
+
+        public override string Columns
+        {
+            get
+            {
+                return "nomePerfil  |   idPerfil";
+            }
+        }
+
 
         public override void ResponseLine(SqlDataReader reader)
         {
@@ -49,7 +58,7 @@ namespace queries
 
         public override void ExecuteQuery(SqlConnectionStringBuilder builder)
         {
-            Console.WriteLine("\nInforme um nome de alguém que administre de playlists por favor:");
+            Console.WriteLine("\nInforme um nome de alguém que administre playlists por favor:");
             this.name = Console.ReadLine();
             this.name += '%'; 
             base.ExecuteQuery(builder);
@@ -58,7 +67,7 @@ namespace queries
 
         public override string GetQueryName()
         {
-            return "NomeEIdDosUsuariosQueAdministramExtatamenteAsMesmasPlaylistsQueDadoUsuarioAdministra";
+            return "Nome E Id Dos Usuarios Que Administram Extatamente As Mesmas Playlists Que Dado Usuario Administra";
         }
     }
 }
