@@ -9,10 +9,13 @@ namespace cs
     {
         static void Main(string[] args)
         {
+            String Server = "DESKTOP-F80E8TC";          // alterar servidor
+            String Database = "teste_entrega_final";    // alterar database
+            const String Trusted_Connection = ":Trusted_Connection=True;";
             try 
             { 
                 SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-                builder.ConnectionString = "Server=DESKTOP-F80E8TC;Database=teste_entrega_final;Trusted_Connection=True;";
+                builder.ConnectionString = "Server=" + Server + ";Database=" + Database + Trusted_Connection;
                 List<Query> listOfQueries = new List<Query>()
                 {
                     new AgruparTodasAsMusicasDeUmDadoUsuarioPorGeneroEIndicarQuantasMusicasDiferentesExistemPorCadaGenero(),
