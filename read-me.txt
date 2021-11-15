@@ -1,0 +1,7 @@
+Para rodar o programa no teu computador é necessário: 
+
+1 - Ter SQL Server e dotnet baixados
+2 - Ir ao arquivo Program.cs na pasta CS
+3 - Alterar na linha 12 o atributo Server para colocar o teu servido do SQL Server
+4 - Alterar na linha 13 o atributo Database para colacar a tua database do SQL Server
+5 - Abrir o power shell (ou qualuqer terminal) na pasta CS e digitar: dotnet run
