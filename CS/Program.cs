@@ -11,7 +11,7 @@ namespace cs
         {
             String Server = "DESKTOP-F80E8TC";          // alterar servidor
             String Database = "teste_entrega_final";    // alterar database
-            const String Trusted_Connection = ":Trusted_Connection=True;";
+            const String Trusted_Connection = ";Trusted_Connection=True;";
             try 
             { 
                 SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
